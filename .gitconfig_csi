@@ -1,0 +1,12 @@
+[user]
+	name = Alien Lien
+	email = alien_lien@htc.com
+[color]
+	ui = False
+[core]
+	editor = vim
+[http]
+	sslVerify = false
+[alias]
+    log-short = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --
+    log-short-all = log --all --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --
