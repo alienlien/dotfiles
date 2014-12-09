@@ -1,0 +1,74 @@
+[core]
+	repositoryformatversion = 0
+	filemode = true
+	bare = false
+	logallrefupdates = true
+[remote "origin"]
+	fetch = +refs/heads/*:refs/remotes/origin/*
+	url = ssh://git.sw.studio.htc.com:7999/csi/csi.git
+[branch "master"]
+	remote = origin
+	merge = refs/heads/master
+[remote "backup"]
+	url = ssh://git@git.sw.studio.htc.com:7999/~alien_lien/csi.git
+	fetch = +refs/heads/*:refs/remotes/backup/*
+[branch "demo/guid_control"]
+	remote = backup
+	merge = refs/heads/demo/guid_control
+[branch "dev/user_management"]
+	remote = backup
+	merge = refs/heads/dev/user_management
+[branch "review/account_manager"]
+	remote = backup
+	merge = refs/heads/review/account_manager
+[branch "login_handler"]
+	remote = backup
+	merge = refs/heads/login_handler
+[branch "verifier"]
+	remote = backup
+	merge = refs/heads/verifier
+[branch "staging/cg"]
+	remote = backup
+	merge = refs/heads/staging/cg
+[branch "feature/control_example"]
+	remote = backup
+	merge = refs/heads/feature/control_example
+[branch "fix/ums_keeper_refactor_sig_store_acl"]
+	remote = backup
+	merge = refs/heads/fix/ums_keeper_refactor_sig_store_acl
+[branch "fix/sig_store_unit_test"]
+	remote = backup
+	merge = refs/heads/fix/sig_store_unit_test
+[branch "feature/sig_use_assoc"]
+	remote = backup
+	merge = refs/heads/feature/sig_use_assoc
+[branch "fix/sig_centralize_all"]
+	remote = backup
+	merge = refs/heads/fix/sig_centralize_all
+[branch "fix/sig_data_transfer_tool"]
+	remote = backup
+	merge = refs/heads/fix/sig_data_transfer_tool
+[branch "fix/auth_store_on_sig_store"]
+	remote = backup
+	merge = refs/heads/fix/auth_store_on_sig_store
+[branch "fix/ums_keeper_unit_test"]
+	remote = backup
+	merge = refs/heads/fix/ums_keeper_unit_test
+[branch "fix/verification_unit_test_sender"]
+	remote = backup
+	merge = refs/heads/fix/verification_unit_test_sender
+[branch "fix/control_unit_test_counter"]
+	remote = backup
+	merge = refs/heads/fix/control_unit_test_counter
+[branch "demo/20141104"]
+	remote = backup
+	merge = refs/heads/demo/20141104
+[branch "stable/20141104"]
+	remote = backup
+	merge = refs/heads/stable/20141104
+[branch "stable/20141113"]
+	remote = backup
+	merge = refs/heads/stable/20141113
+[branch "stable/20141124-2"]
+	remote = backup
+	merge = refs/heads/stable/20141124-2
