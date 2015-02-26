@@ -90,8 +90,16 @@ alias lt='ll -t -r -h'
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
+
+# Alias for CSI
 alias xmdev='ssh -i ~/.ssh/google_compute_engine csiuser@107.167.186.37'
 alias xmdev2='ssh -i ~/.ssh/google_compute_engine csiuser@107.167.184.173'
+alias csilist='gcloud compute instances list'
+alias csilog1='gcloud compute ssh --zone us-central1-a --project studio-csi-sta csiuser@ccloud-sta-helper-us-central1-a-logcollector-txvl'
+alias csilog2='gcloud compute ssh --zone us-central1-a --project studio-csi-sta csiuser@ccloud-sta-helper-us-central1-a-logcollector-z0wb'
+alias csilog3='gcloud compute ssh --zone us-central1-a --project studio-csi-sta csiuser@ccloud-sta-helper-us-central1-a-logcollector-m562'
+alias csiman='gcloud compute ssh --zone us-central1-f --project studio-csi-prod csiuser@ccloud-prod-us-central1-f-cl-is-a-real-man'
+alias csidev='gcloud compute ssh --zone us-central1-a --project studio-csi-dev csiuser@ccloud-roy-tester-standard-2-new-permission'
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
@@ -114,64 +122,55 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
 fi
 
 # Add Path for Java
-export JAVA_HOME=/usr/lib/jvm/java-7-openjdk-amd64
+export JAVA_HOME=$(/usr/libexec/java_home)
 export PATH=$PATH:$JAVA_HOME/bin
 
-# Add Path for Gradle
-export GRADLE_HOME=$HOME/workspace/local/android/gradle-1.10
-export PATH=$PATH:$GRADLE_HOME/bin
-
-# Add Path for Android SDK
-export ANDROID_HOME=$HOME/workspace/local/android/android-sdk-linux
-export PATH=$PATH:$ANDROID_HOME/platform-tools:$ANDROID_HOME/tools
-
-# Add Path for Android Studio
-export ANDROID_AS=$HOME/workspace/local/android/android-studio
-export PATH=$PATH:$ANDROID_AS/bin
-
 # Add Path for Golang
-export GOROOT=/home/alien/workspace/local/go
+export GOROOT=$HOME/workspace/local/go
 export PATH=$PATH:$GOROOT/bin
 # Fix when GOPATH has multiple items
-export GOPATH=/home/alien/workspace/project/csi
+export GOPATH=$HOME/workspace/project/csi
 export PATH=$PATH:$GOPATH/bin
-export PATH=$PATH:/home/alien/workspace/project/csi/src/htc.com/csi/vendor/bin
+export PATH=$PATH:$HOME/workspace/project/csi/src/htc.com/csi/vendor/bin
 
 # Add Path for Golint
-export GOLINT=/home/alien/workspace/project/csi/src/github.com/golang/lint/golint
+export GOLINT=$HOME/workspace/project/csi/src/github.com/golang/lint/golint
 export PATH=$PATH:$GOLINT
 
-# Add Path for Maven
-export M2_HOME=/home/alien/workspace/local/apache-maven-3.1.1
-export M2=$M2_HOME/bin
-export PATH=$PATH:$M2
-
 # Add Path for HBase
-export HBASE=$HOME/workspace/local/hbase-0.98.0-hadoop2
+export HBASE=$HOME/workspace/local/hbase-0.98.8-hadoop2
 export PATH=$PATH:$HBASE/bin
 
 # Add Path for Arc
-export ARCANIST=$HOME/workspace/local/arcanist
+export ARCANIST=$HOME/workspace/local/arcanist/arcanist
 export PATH=$PATH:$ARCANIST/bin
 
-# Add Path for yED
-export PATH=$PATH:$HOME/workspace/local/yEd
-
 # Add Path for Zookeeper
-export ZK_HOME=$HOME/workspace/local/zookeeper-3.4.5
+export ZK_HOME=$HOME/workspace/local/zookeeper-3.4.6
 export PATH=$PATH:$ZK_HOME/bin
 
-# Add Path for cscope database
-export CSCOPE_DB=$HOME/workspace/local/cscope_db
+## Add Path for cscope database
+#export CSCOPE_DB=$HOME/workspace/local/cscope_db
 
-# Add Path for node.js and jslint
-export NODE_JS_HOME=$HOME/workspace/local/node-v0.10.28-linux-x64
-export PATH=$PATH:$NODE_JS_HOME/bin
-
-# Add Path for Hipchat
-export PATH=$PATH:$HOME/workspace/local/HipChat/bin
-
-alias jslint='$NODE_JS_HOME/node_modules/jslint/bin/jslint.js'
+# Commands for csi project on gcloud
+# determine project by hostname
+function csi_project {
+base_cmd='gcloud compute ssh'
+hostname=$1
+zone="us-central1-f"
+if echo $hostname | grep 'us-central1-a'
+then zone="us-central1-a"
+fi
+shift;
+  if echo $hostname | grep 'prod-'
+  then $base_cmd --project="studio-csi-prod" $hostname --zone=$zone
+  elif echo $hostname | grep 'sta-'
+  then $base_cmd --project="studio-csi-sta" $hostname --zone=$zone
+  else
+     $base_cmd --project="studio-csi-dev" $hostname --zone=$zone
+  fi
+}
+alias gssh=csi_project
 
 # Import the environment for csi project.
 source $GOPATH/src/htc.com/csi/env.sh
@@ -188,13 +187,21 @@ NO_COLOR="\[\033[0m\]"
  
 PS1="$NO_COLOR\u@\h$NO_COLOR:\w$YELLOW\$(parse_git_branch)$NO_COLOR\$ "
 
-
-
-# The next line updates PATH for the Google Cloud SDK.
-source /home/alien/workspace/local/google-cloud-sdk/path.bash.inc
-
-# The next line enables bash completion for gcloud.
-source /home/alien/workspace/local/google-cloud-sdk/completion.bash.inc
+# Add auto complete for git command
+if [ -f ~/.git-completion.bash ]; then
+  . ~/.git-completion.bash
+fi
 
 # Add supports for nail
 export NATS_CLUSTER=nats://23.236.50.152:4222/
+
+# Environment setting for docker
+export DOCKER_HOST=tcp://192.168.59.103:2376
+export DOCKER_CERT_PATH=/Users/Alien_Lien/.boot2docker/certs/boot2docker-vm
+export DOCKER_TLS_VERIFY=1
+
+# The next line updates PATH for the Google Cloud SDK.
+source '/Users/Alien_Lien/google-cloud-sdk/path.bash.inc'
+
+# The next line enables bash completion for gcloud.
+source '/Users/Alien_Lien/google-cloud-sdk/completion.bash.inc'

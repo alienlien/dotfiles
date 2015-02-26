@@ -74,8 +74,8 @@ augroup END
 " autocmd FileType go compiler go
 autocmd Filetype go set makeprg=go\ build
 
-set rtp+=$GOROOT/misc/vim
-set rtp+=/home/alien/workspace/project/CSI/src/github.com/golang/lint/misc/vim
+set rtp+=/Users/Alien_Lien/workspace/local/go/misc/vim
+set rtp+=/Users/Alien_Lien/workspace/project/csi/src/github.com/golang/lint/misc/vim
 
 " let g:go_fmt_command = "goimports"
 " autocmd BufWritePre *.go :Fmt
