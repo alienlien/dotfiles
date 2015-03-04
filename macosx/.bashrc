@@ -91,6 +91,9 @@ alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
 
+# Alias for the newer ctags installed through homebrew
+alias ctags="`brew --prefix`/bin/ctags"
+
 # Alias for CSI
 alias xmdev='ssh -i ~/.ssh/google_compute_engine csiuser@107.167.186.37'
 alias xmdev2='ssh -i ~/.ssh/google_compute_engine csiuser@107.167.184.173'
