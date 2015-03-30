@@ -152,6 +152,11 @@ export PATH=$PATH:$ARCANIST/bin
 export ZK_HOME=$HOME/workspace/local/zookeeper-3.4.6
 export PATH=$PATH:$ZK_HOME/bin
 
+# Complete AWS
+complete -C aws_completer aws
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
+
 ## Add Path for cscope database
 #export CSCOPE_DB=$HOME/workspace/local/cscope_db
 
