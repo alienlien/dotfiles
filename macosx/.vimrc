@@ -1,3 +1,13 @@
+let iCanHazVundle=1
+let vundle_readme=expand('~/.vim/bundle/Vundle.vim/README.md')
+if !filereadable(vundle_readme)
+  echo "Installing Vundle.."
+  echo ""
+  silent !mkdir -p ~/.vim/bundle
+  silent !git clone https://github.com/gmarik/vundle ~/.vim/bundle/Vundle.vim
+  let iCanHazVundle=0
+endif
+
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
@@ -14,8 +24,19 @@ Plugin 'gmarik/Vundle.vim'
 " Keep Plugin commands between vundle#begin/end.
 " plugin on GitHub repo
 
+" Cloned and modified from http://cscope.sourceforge.net/cscope_maps.vim to
+" make a vundle package.
+Plugin 'steffanc/cscopemaps.vim'
+
+" Ctrlp - Full path fuzzy file, buffer, mru, tag, ... finder for Vim.
+" https://github.com/kien/ctrlp.vim  
+Plugin 'kien/ctrlp.vim'
+
+" Vim syntax highlighting for Google's Protocol Buffers
+Plugin 'uarun/vim-protobuf'
+
 " Use 'gd' to find where the method/variable is
-Bundle 'dgryski/vim-godef'
+Plugin 'dgryski/vim-godef'
 let g:godef_split=2
 
 " All of your Plugins must be added before the following line
