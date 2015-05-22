@@ -35,7 +35,11 @@ Plugin 'kien/ctrlp.vim'
 " Vim syntax highlighting for Google's Protocol Buffers
 Plugin 'uarun/vim-protobuf'
 
+" Go development plugin for Vim
+Plugin 'fatih/vim-go'
+
 " Use 'gd' to find where the method/variable is
+" Requisite: http://github.com/rogpeppe/godef 
 Plugin 'dgryski/vim-godef'
 let g:godef_split=2
 
