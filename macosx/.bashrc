@@ -131,14 +131,11 @@ export PATH=$PATH:$JAVA_HOME/bin
 # Add Path for Golang
 export GOROOT=$HOME/workspace/local/go
 export PATH=$PATH:$GOROOT/bin
-# Fix when GOPATH has multiple items
-export GOPATH=$HOME/workspace/project/csi
-export PATH=$PATH:$GOPATH/bin
-export PATH=$PATH:$HOME/workspace/project/csi/src/htc.com/csi/vendor/bin
 
-# Add Path for Golint
-export GOLINT=$HOME/workspace/project/csi/src/github.com/golang/lint/golint
-export PATH=$PATH:$GOLINT
+# Add Path for Project using golang.
+export GOPATH=$HOME/workspace/project/go
+export PATH=$PATH:$GOPATH/bin
+export DLROOT=$GOPATH/src/htc.com/dist-deeplearning
 
 # Add Path for HBase
 export HBASE=$HOME/workspace/local/hbase-0.98.8-hadoop2
@@ -180,8 +177,8 @@ shift;
 }
 alias gssh=csi_project
 
-# Import the environment for csi project.
-source $GOPATH/src/htc.com/csi/env.sh
+# # Import the environment for csi project.
+# source $GOPATH/src/htc.com/csi/env.sh
 
 # Add the branch name for git repo. 
 function parse_git_branch () {
