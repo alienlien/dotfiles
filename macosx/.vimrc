@@ -43,6 +43,12 @@ Plugin 'fatih/vim-go'
 Plugin 'dgryski/vim-godef'
 let g:godef_split=2
 
+" Markdown Syntax
+Plugin 'godlygeek/tabular'
+Plugin 'plasticboy/vim-markdown'
+" Disable the folding
+let g:vim_markdown_folding_disabled=1
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -69,7 +75,7 @@ syntax on
 set shiftwidth=4 " 設定縮排寬度 = 4
 set tabstop=4    " tab 的字元數
 set softtabstop=4
-set expandtab   " 用 space 代替 tab
+set expandtab    " 用 space 代替 tab
 
 set ruler        " 顯示右下角設定值
 set backspace=2  " 在 insert 也可用 backspace
@@ -114,3 +120,9 @@ map <A-Right> gt
 " Source:   http://stackoverflow.com/questions/563616/vimctags-tips-and-tricks
 "--------------------
 map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
+
+" Add the keywork : for lua + ctags
+augroup filetype_lua
+    autocmd!
+    autocmd FileType lua setlocal iskeyword+=:
+augroup END
