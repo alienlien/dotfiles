@@ -49,6 +49,9 @@ Plugin 'plasticboy/vim-markdown'
 " Disable the folding
 let g:vim_markdown_folding_disabled=1
 
+" Vim syntax for swift
+Plugin 'toyamarinyon/vim-swift'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
