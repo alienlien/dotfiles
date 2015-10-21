@@ -94,6 +94,10 @@ alias ....='cd ../../..'
 # Alias for the newer ctags installed through homebrew
 alias ctags="`brew --prefix`/bin/ctags"
 
+# Alias for docker
+alias dkmachine='docker-machine'
+alias dkenv='eval "$(docker-machine env default)"'
+
 # Alias for CSI
 alias xmdev='ssh -i ~/.ssh/google_compute_engine csiuser@107.167.186.37'
 alias xmdev2='ssh -i ~/.ssh/google_compute_engine csiuser@107.167.184.173'
@@ -103,6 +107,7 @@ alias csilog2='gcloud compute ssh --zone us-central1-a --project studio-csi-sta 
 alias csilog3='gcloud compute ssh --zone us-central1-a --project studio-csi-sta csiuser@ccloud-sta-helper-us-central1-a-logcollector-m562'
 alias csiman='gcloud compute ssh --zone us-central1-f --project studio-csi-prod csiuser@ccloud-prod-us-central1-f-cl-is-a-real-man'
 alias csidev='gcloud compute ssh --zone us-central1-a --project studio-csi-dev csiuser@ccloud-roy-tester-standard-2-new-permission'
+alias stock='curl -s http://download.finance.yahoo.com/d/quotes.csv\?s\=2498.tw\&f\=a'
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
@@ -200,10 +205,10 @@ fi
 # Add supports for nail
 export NATS_CLUSTER=nats://23.236.50.152:4222/
 
-# Environment setting for docker
-export DOCKER_HOST=tcp://192.168.59.103:2376
-export DOCKER_CERT_PATH=/Users/Alien_Lien/.boot2docker/certs/boot2docker-vm
-export DOCKER_TLS_VERIFY=1
+# # Environment setting for docker
+# export DOCKER_HOST=tcp://192.168.59.103:2376
+# export DOCKER_CERT_PATH=/Users/Alien_Lien/.boot2docker/certs/boot2docker-vm
+# export DOCKER_TLS_VERIFY=1
 
 # The next line updates PATH for the Google Cloud SDK.
 source '/Users/Alien_Lien/google-cloud-sdk/path.bash.inc'
