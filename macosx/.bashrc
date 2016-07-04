@@ -134,7 +134,8 @@ export JAVA_HOME=$(/usr/libexec/java_home)
 export PATH=$PATH:$JAVA_HOME/bin
 
 # Add Path for Golang
-export GOROOT=$HOME/workspace/local/go
+# export GOROOT=$HOME/workspace/local/go
+export GOROOT=/usr/local/opt/go/libexec
 export PATH=$PATH:$GOROOT/bin
 
 # Add Path for Project using golang.
@@ -158,6 +159,10 @@ export PATH=$PATH:$ZK_HOME/bin
 complete -C aws_completer aws
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
+
+# Node.js
+# export NVM_DIR=~/.nvm
+# source $(brew --prefix nvm)/nvm.sh
 
 ## Add Path for cscope database
 #export CSCOPE_DB=$HOME/workspace/local/cscope_db
