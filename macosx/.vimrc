@@ -52,6 +52,36 @@ let g:vim_markdown_folding_disabled=1
 " Vim syntax for swift
 Plugin 'toyamarinyon/vim-swift'
 
+" Python auto complete
+Plugin 'davidhalter/jedi-vim'
+
+" Python lint
+Plugin 'nvie/vim-flake8'
+
+" Latex syntax highlighting
+Plugin 'lervag/vimtex'
+
+" CSS Color Preview
+Plugin 'ap/vim-css-color'
+
+" Ag Plugin
+" :Ag [options] {pattern} [{directory}]
+Plugin 'rking/ag.vim'
+
+" Javascript, JSX syntax
+Plugin 'pangloss/vim-javascript'
+Plugin 'mxw/vim-jsx'
+Plugin 'maksimr/vim-jsbeautify'
+
+" Add auto-formatter
+" Plugin 'Chiel92/vim-autoformat'
+
+" Search with Ag Plugin Directly.
+" visual: gag to search the selected text
+" normal: gagiw to search the word
+"         gagi' to search the words inside single quotes.
+" Plugin 'chun-yang/vim-action-ag'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -114,9 +144,18 @@ set rtp+=/Users/Alien_Lien/workspace/project/csi/src/github.com/golang/lint/misc
 " let g:go_fmt_command = "goimports"
 " autocmd BufWritePre *.go :Fmt
 
+" Set Leader as ','
+let mapleader=","   "Leader is ,"
+
+" Open ag.vim
+nnoremap <leader>a :Ag
+
 " Add keyboard shortcuts
 map <A-Left> gT
 map <A-Right> gt
+
+" Add ctags for python packages.
+map <F11> :!ctags -R -f ./tags /usr/local/lib/python2.7/site-packages<CR>
 
 "--------------------
 " Function: Open tag under cursor in new tab
@@ -124,8 +163,19 @@ map <A-Right> gt
 "--------------------
 map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
 
-" Add the keywork : for lua + ctags
+" Add the keyword : for lua + ctags
 augroup filetype_lua
     autocmd!
     autocmd FileType lua setlocal iskeyword+=:
 augroup END
+
+" Auto lint when saving python files. 
+autocmd BufWritePost *.py call Flake8()
+
+let g:jedi#use_tabs_not_buffers = 1
+
+" Enable JSX check for .js files.
+let g:jsx_ext_required = 0
+
+" Auto fix javascript when saving .js files
+" autocmd BufWritePost *.js call JsBeautify()
