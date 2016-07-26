@@ -133,6 +133,10 @@ fi
 export JAVA_HOME=$(/usr/libexec/java_home)
 export PATH=$PATH:$JAVA_HOME/bin
 
+# Add Path for Spark
+export SPARK_HOME=$HOME/workspace/local/spark
+export PATH=$PATH:$SPARK_HOME/bin
+
 # Add Path for Golang
 # export GOROOT=$HOME/workspace/local/go
 export GOROOT=/usr/local/opt/go/libexec
@@ -216,7 +220,7 @@ export NATS_CLUSTER=nats://23.236.50.152:4222/
 # export DOCKER_TLS_VERIFY=1
 
 # The next line updates PATH for the Google Cloud SDK.
-source '/Users/Alien_Lien/google-cloud-sdk/path.bash.inc'
+# source '/Users/Alien_Lien/google-cloud-sdk/path.bash.inc'
 
 # The next line enables bash completion for gcloud.
-source '/Users/Alien_Lien/google-cloud-sdk/completion.bash.inc'
+# source '/Users/Alien_Lien/google-cloud-sdk/completion.bash.inc'

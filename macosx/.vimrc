@@ -73,6 +73,9 @@ Plugin 'pangloss/vim-javascript'
 Plugin 'mxw/vim-jsx'
 Plugin 'maksimr/vim-jsbeautify'
 
+" Scala Syntax
+Plugin 'derekwyatt/vim-scala'
+
 " Add auto-formatter
 " Plugin 'Chiel92/vim-autoformat'
 
