@@ -94,19 +94,22 @@ alias ....='cd ../../..'
 # Alias for the newer ctags installed through homebrew
 alias ctags="`brew --prefix`/bin/ctags"
 
+# Alias for pretty json
+alias prettyjson='python -m json.tool'
+
 # Alias for docker
-alias dkmachine='docker-machine'
-alias dkenv='eval "$(docker-machine env default)"'
+# alias dkmachine='docker-machine'
+# alias dkenv='eval "$(docker-machine env default)"'
 
 # Alias for CSI
-alias xmdev='ssh -i ~/.ssh/google_compute_engine csiuser@107.167.186.37'
-alias xmdev2='ssh -i ~/.ssh/google_compute_engine csiuser@107.167.184.173'
-alias csilist='gcloud compute instances list'
-alias csilog1='gcloud compute ssh --zone us-central1-a --project studio-csi-sta csiuser@ccloud-sta-helper-us-central1-a-logcollector-txvl'
-alias csilog2='gcloud compute ssh --zone us-central1-a --project studio-csi-sta csiuser@ccloud-sta-helper-us-central1-a-logcollector-z0wb'
-alias csilog3='gcloud compute ssh --zone us-central1-a --project studio-csi-sta csiuser@ccloud-sta-helper-us-central1-a-logcollector-m562'
-alias csiman='gcloud compute ssh --zone us-central1-f --project studio-csi-prod csiuser@ccloud-prod-us-central1-f-cl-is-a-real-man'
-alias csidev='gcloud compute ssh --zone us-central1-a --project studio-csi-dev csiuser@ccloud-roy-tester-standard-2-new-permission'
+# alias xmdev='ssh -i ~/.ssh/google_compute_engine csiuser@107.167.186.37'
+# alias xmdev2='ssh -i ~/.ssh/google_compute_engine csiuser@107.167.184.173'
+# alias csilist='gcloud compute instances list'
+# alias csilog1='gcloud compute ssh --zone us-central1-a --project studio-csi-sta csiuser@ccloud-sta-helper-us-central1-a-logcollector-txvl'
+# alias csilog2='gcloud compute ssh --zone us-central1-a --project studio-csi-sta csiuser@ccloud-sta-helper-us-central1-a-logcollector-z0wb'
+# alias csilog3='gcloud compute ssh --zone us-central1-a --project studio-csi-sta csiuser@ccloud-sta-helper-us-central1-a-logcollector-m562'
+# alias csiman='gcloud compute ssh --zone us-central1-f --project studio-csi-prod csiuser@ccloud-prod-us-central1-f-cl-is-a-real-man'
+# alias csidev='gcloud compute ssh --zone us-central1-a --project studio-csi-dev csiuser@ccloud-roy-tester-standard-2-new-permission'
 alias stock='curl -s http://download.finance.yahoo.com/d/quotes.csv\?s\=2498.tw\&f\=a'
 
 # Add an "alert" alias for long running commands.  Use like so:
@@ -128,6 +131,14 @@ fi
 if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
+
+# Enable autocomplete for mac (need to brew install bash-completion first)
+if [ -f $(brew --prefix)/etc/bash_completion ]; then
+    . $(brew --prefix)/etc/bash_completion
+fi
+
+# Add sbin (for rabbitMQ)
+export PATH=$PATH:/usr/local/sbin
 
 # Add Path for Java
 export JAVA_HOME=$(/usr/libexec/java_home)
@@ -158,6 +169,12 @@ export PATH=$PATH:$ARCANIST/bin
 # Add Path for Zookeeper
 export ZK_HOME=$HOME/workspace/local/zookeeper-3.4.6
 export PATH=$PATH:$ZK_HOME/bin
+
+# Add Path for Airflow
+export AIRFLOW_HOME=$HOME/workspace/local/airflow
+
+# Add Path for PostgresSQL
+export POSTGRES_HOME=/usr/local/var/postgres
 
 # Complete AWS
 complete -C aws_completer aws
