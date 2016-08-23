@@ -79,6 +79,15 @@ Plugin 'derekwyatt/vim-scala'
 " Json Syntax
 Plugin 'elzr/vim-json'
 
+" YAML Syntax
+Plugin 'stephpy/vim-yaml'
+
+" GraphQL Syntax
+Plugin 'jparise/vim-graphql'
+
+" Jinja2 template syntax
+Plugin 'glench/vim-jinja2-syntax'
+
 " Add auto-formatter
 " Plugin 'Chiel92/vim-autoformat'
 
