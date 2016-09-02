@@ -144,7 +144,7 @@ export PATH=$PATH:/usr/local/sbin
 export JAVA_HOME=$(/usr/libexec/java_home)
 export PATH=$PATH:$JAVA_HOME/bin
 
-# Add Path for Spark
+# Add Spark Path
 export SPARK_HOME=$HOME/workspace/local/spark
 export PATH=$PATH:$SPARK_HOME/bin
 

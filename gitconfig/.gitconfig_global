@@ -1,11 +1,11 @@
 [user]
 	name = Alien Lien
-	email = alien_lien@htc.com
+	email = alienlien@gmail.com
 [color]
 	ui = False
 [core]
 	editor = vim
-	excludesfile = /Users/Alien_Lien/.gitignore_global
+	excludesfile = /Users/Alien/gitconfig/.gitignore_global
 [http]
 	sslVerify = false
 [alias]
