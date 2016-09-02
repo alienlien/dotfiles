@@ -194,3 +194,6 @@ let g:jsx_ext_required = 0
 
 " Auto fix javascript when saving .js files
 " autocmd BufWritePost *.js call JsBeautify()
+
+" Auto remove trailing spaces
+autocmd FileType python autocmd BufWritePre <buffer> :%s/\s\+$//e
