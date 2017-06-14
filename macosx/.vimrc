@@ -88,6 +88,12 @@ Plugin 'jparise/vim-graphql'
 " Jinja2 template syntax
 Plugin 'glench/vim-jinja2-syntax'
 
+" Haskell Syntax
+Plugin 'neovimhaskell/haskell-vim'
+
+" Nerdtree for vim
+Plugin 'scrooloose/nerdtree'
+
 " Add auto-formatter
 " Plugin 'Chiel92/vim-autoformat'
 
