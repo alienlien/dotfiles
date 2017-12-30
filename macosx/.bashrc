@@ -91,6 +91,10 @@ alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
 
+# Add ls colors for mac
+export CLICOLOR='true'
+export LSCOLORS="ExfxcxdxBxegedabagacad"
+
 # Alias for the newer ctags installed through homebrew
 alias ctags="`brew --prefix`/bin/ctags"
 
@@ -137,6 +141,10 @@ if [ -f $(brew --prefix)/etc/bash_completion ]; then
     . $(brew --prefix)/etc/bash_completion
 fi
 
+# Add isu4c
+export PATH=/usr/local/opt/icu4c/bin:$PATH
+export PATH=/usr/local/opt/icu4c/sbin:$PATH
+
 # Add sbin (for rabbitMQ)
 export PATH=$PATH:/usr/local/sbin
 
@@ -176,10 +184,27 @@ export AIRFLOW_HOME=$HOME/workspace/local/airflow
 # Add Path for PostgresSQL
 export POSTGRES_HOME=/usr/local/var/postgres
 
+# Add Path for Tex
+export TEX=/Library/TeX
+export PATH=$PATH:$TEX/texbin
+
+# Setup virtualenv dir for pipenv
+export WORKON_HOME=$HOME/.venvs
+
 # Complete AWS
 complete -C aws_completer aws
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
+
+# Make GNU-tar as the standard tar.
+# gnu-tar has been installed as "gtar".
+
+# If you really need to use it as "tar", you can add a "gnubin" directory
+# to your PATH from your bashrc like:
+export PATH="/usr/local/opt/gnu-tar/libexec/gnubin:$PATH"
+
+# Add support for opencv 3
+# export PATH=$PATH:/usr/local/opt/opencv3/bin
 
 # Node.js
 # export NVM_DIR=~/.nvm
@@ -241,3 +266,12 @@ export NATS_CLUSTER=nats://23.236.50.152:4222/
 
 # The next line enables bash completion for gcloud.
 # source '/Users/Alien_Lien/google-cloud-sdk/completion.bash.inc'
+
+
+. /Users/Alien/torch/install/bin/torch-activate
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/Alien/google-cloud-sdk/path.bash.inc' ]; then source '/Users/Alien/google-cloud-sdk/path.bash.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/Alien/google-cloud-sdk/completion.bash.inc' ]; then source '/Users/Alien/google-cloud-sdk/completion.bash.inc'; fi
