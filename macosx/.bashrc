@@ -40,7 +40,7 @@ esac
 # uncomment for a colored prompt, if the terminal has the capability; turned
 # off by default to not distract the user: the focus in a terminal window
 # should be on the output of commands, not on the prompt
-#force_color_prompt=yes
+# force_color_prompt=yes
 
 if [ -n "$force_color_prompt" ]; then
     if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
@@ -81,6 +81,10 @@ if [ -x /usr/bin/dircolors ]; then
     alias fgrep='fgrep --color=auto'
     alias egrep='egrep --color=auto'
 fi
+
+# Add ls colors.
+export CLICOLOR='true'
+export LSCOLORS="Exfxcxdxbxegedabagacad"
 
 # some more ls aliases
 alias ll='ls -alF'
@@ -156,6 +160,17 @@ export PATH=$PATH:$JAVA_HOME/bin
 export SPARK_HOME=$HOME/workspace/local/spark
 export PATH=$PATH:$SPARK_HOME/bin
 
+# Use brew python 2 to replace the built-in one.
+# Ref: https://github.com/Homebrew/homebrew-core/issues/15746
+export PATH="/usr/local/opt/python/libexec/bin:$PATH"
+
+# Use GNU tar to replace the mac tar, which differs from the gnu one.
+export PATH="/usr/local/opt/gnu-tar/libexec/gnubin:$PATH"
+
+# Use an older version of thrift for compatability with spark/scala
+# $ brew install thrift@0.9
+export PATH="/usr/local/opt/thrift@0.9/bin:$PATH"
+
 # Add Path for Golang
 # export GOROOT=$HOME/workspace/local/go
 export GOROOT=/usr/local/opt/go/libexec
@@ -205,6 +220,9 @@ export PATH="/usr/local/opt/gnu-tar/libexec/gnubin:$PATH"
 
 # Add support for opencv 3
 # export PATH=$PATH:/usr/local/opt/opencv3/bin
+
+# Add ssh keys
+ssh-add ~/.ssh/gitlab
 
 # Node.js
 # export NVM_DIR=~/.nvm
@@ -256,6 +274,9 @@ fi
 # Add supports for nail
 export NATS_CLUSTER=nats://23.236.50.152:4222/
 
+# Load pyenv automatically
+# eval "$(pyenv init -)"
+
 # # Environment setting for docker
 # export DOCKER_HOST=tcp://192.168.59.103:2376
 # export DOCKER_CERT_PATH=/Users/Alien_Lien/.boot2docker/certs/boot2docker-vm
@@ -266,9 +287,6 @@ export NATS_CLUSTER=nats://23.236.50.152:4222/
 
 # The next line enables bash completion for gcloud.
 # source '/Users/Alien_Lien/google-cloud-sdk/completion.bash.inc'
-
-
-. /Users/Alien/torch/install/bin/torch-activate
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/Alien/google-cloud-sdk/path.bash.inc' ]; then source '/Users/Alien/google-cloud-sdk/path.bash.inc'; fi
