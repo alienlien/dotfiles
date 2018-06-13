@@ -94,6 +94,39 @@ Plugin 'neovimhaskell/haskell-vim'
 " Nerdtree for vim
 Plugin 'scrooloose/nerdtree'
 
+" Ensime vim (for scala)
+" Plugin 'ensime/ensime-vim'
+
+" Install fzf plugin for vim.
+Plugin 'junegunn/fzf'
+
+" Hocon plugin
+Plugin 'geverding/vim-hocon'
+
+" Thrift plugin
+Plugin 'solarnz/thrift.vim'
+
+" AutoComplete
+Plugin 'shougo/neocomplete.vim'
+" Disable AutoComplPop.
+let g:acp_enableAtStartup = 0
+" Use neocomplete.
+let g:neocomplete#enable_at_startup = 1
+" Use smartcase.
+let g:neocomplete#enable_smart_case = 1
+" Set minimum syntax keyword length.
+let g:neocomplete#sources#syntax#min_keyword_length = 3
+
+" For Scala
+" Ignore the file generated for search.
+set wildignore+=*/target/*
+
+" Airline
+Plugin 'vim-airline/vim-airline'
+
+" Git wrapper for airline
+" Plugin 'tpope/vim-fugitive'
+
 " Add auto-formatter
 " Plugin 'Chiel92/vim-autoformat'
 
@@ -148,7 +181,7 @@ set laststatus=2
 set statusline=%4*%<\%m%<[%f\%r%h%w]\ [%{&ff},%{&fileencoding},%Y]%=\[Position=%l,%v,%p%%]
 set omnifunc=syntaxcomplete#Complete
 
-"set tags=~/.myctags
+set tags=tags;/
 
 colorscheme wombat256
 
@@ -203,3 +236,12 @@ let g:jsx_ext_required = 0
 
 " Auto remove trailing spaces
 autocmd FileType python autocmd BufWritePre <buffer> :%s/\s\+$//e
+
+" Map a shortcut to open NERDTree?
+map <C-n> :NERDTreeToggle<CR>
+
+
+" Ensime for scala
+" Ref: http://ensime.org/editors/vim/install/
+" autocmd BufWritePost *.scala silent :EnTypeCheck
+" nnoremap <localleader>t :EnType<CR>
