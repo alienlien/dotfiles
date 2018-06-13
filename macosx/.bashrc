@@ -288,8 +288,10 @@ export NATS_CLUSTER=nats://23.236.50.152:4222/
 # The next line enables bash completion for gcloud.
 # source '/Users/Alien_Lien/google-cloud-sdk/completion.bash.inc'
 
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
 # The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/Alien/google-cloud-sdk/path.bash.inc' ]; then source '/Users/Alien/google-cloud-sdk/path.bash.inc'; fi
+if [ -f '/Users/alienlien/workspace/project/private/gcloud/google-cloud-sdk/path.bash.inc' ]; then source '/Users/alienlien/workspace/project/private/gcloud/google-cloud-sdk/path.bash.inc'; fi
 
 # The next line enables shell command completion for gcloud.
-if [ -f '/Users/Alien/google-cloud-sdk/completion.bash.inc' ]; then source '/Users/Alien/google-cloud-sdk/completion.bash.inc'; fi
+if [ -f '/Users/alienlien/workspace/project/private/gcloud/google-cloud-sdk/completion.bash.inc' ]; then source '/Users/alienlien/workspace/project/private/gcloud/google-cloud-sdk/completion.bash.inc'; fi
