@@ -274,6 +274,16 @@ fi
 # Add supports for nail
 export NATS_CLUSTER=nats://23.236.50.152:4222/
 
+# Add tcl-tk
+export PATH="/usr/local/opt/tcl-tk/bin:$PATH"
+
+# # For compilers to find zlib you may need to set:
+# export LDFLAGS="${LDFLAGS} -L/usr/local/opt/zlib/lib"
+# export CPPFLAGS="${CPPFLAGS} -I/usr/local/opt/zlib/include"
+# 
+# # For pkg-config to find zlib you may need to set:
+# export PKG_CONFIG_PATH="${PKG_CONFIG_PATH} /usr/local/opt/zlib/lib/pkgconfig"
+
 # Load pyenv automatically
 # eval "$(pyenv init -)"
 
@@ -295,3 +305,11 @@ if [ -f '/Users/alienlien/workspace/project/private/gcloud/google-cloud-sdk/path
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/alienlien/workspace/project/private/gcloud/google-cloud-sdk/completion.bash.inc' ]; then source '/Users/alienlien/workspace/project/private/gcloud/google-cloud-sdk/completion.bash.inc'; fi
+
+export VAULT_ADDR=http://127.0.0.1:20000/
+export VAULT_TOKEN=s.3O0B8AJJzct73E4XlwtSZTYL
+export CONSUL_HTTP_ADDR=127.0.0.1:20001
+export CONSUL_HTTP_TOKEN=c14e87b3-91cf-266e-292f-42b16f68b72f
+export NOMAD_ADDR=http://127.0.0.1:20002/
+export NOMAD_TOKEN=3b9c6114-e73a-f9a0-d624-e76b86c4253e
+# complete -C /usr/local/bin/nomad nomad
